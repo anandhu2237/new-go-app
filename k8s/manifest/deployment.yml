@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-lang-app
+  labels:
+    app: go-lang-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-app
+  template:
+    metadata:
+      labels:
+        app: go-app
+    spec:
+      containers:
+      - name: go-lang-app
+        image: devanandhu/go-lang-prg:v1
+        ports:
+        - containerPort: 8081
